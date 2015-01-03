@@ -6,6 +6,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 
+import pdf.PDFCreator;
 import dao.XmlDAO;
 import dto.PerformanceDTO;
 import dto.VisitorDTO;
@@ -15,6 +16,8 @@ import dto.VisitorDTO;
 public class VisitorsController {
 	@ManagedProperty(value="#{xmlDAO}")
 	private XmlDAO xmlDAO;
+	@ManagedProperty(value="#{pDFCreator}") //Stimmt das so?
+	private PDFCreator pdfcreator;
 	private int performanceID;
 
 	public XmlDAO getXmlDAO() {
@@ -40,6 +43,10 @@ public class VisitorsController {
 	public String visitorsAction(PerformanceDTO performance) {
 		performanceID = performance.getId();
 		return "visitors.xhtml";
+	}
+	
+	public void generateVisitorsPDF() {
+		pdfcreator.generateVisitorsPDF(xmlDAO.getDataVisitors(performanceID));
 	}
 	
 }
