@@ -1,0 +1,142 @@
+/*
+-------------------------------------------------
+Copyright 2009 RAGE Software, www.ragesw.com
+
+Fore more templates visit:
+http://www.ragesw.com/templates.php
+
+This template may be used by the purchasing party only.
+You may not resell or redistribute this template in any
+way shape or form. See the included
+terms and conditions read me included with the
+downloaded template for more information.
+-------------------------------------------------
+*/
+
+body {
+	
+	background: #852500 url(#{resource['images/gbodybg.gif']}) repeat-x top;
+	margin: 0;
+	padding: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+}
+#wrap {
+	width: 791px;
+	margin: 30px auto 30px auto;
+	background: #fff url(#{resource['images/wrapbg.gif']}) repeat-y top;
+}
+#header {
+	padding:0;
+}
+#main-body {
+	width: 500px;
+	float: left;
+	padding: 15px 0 0 15px;
+}
+#sidebar {
+	width: 235px;
+	float: left;
+	padding: 10px 0 0 0;
+	margin: 0;
+}
+
+#sidebar p {
+	margin-left:20px;
+	margin-right:20px;
+}
+
+#sidebar h2 {
+	font-size: 110%;
+	margin-left: 20px;
+}
+/* ----- =nav ------*/
+#nav {
+	background: url(#{resource['images/navbg.gif']}) repeat-y left top;
+	margin: 20px 0 0 0;
+	width: 236px;
+	padding: 10px 0 10px 0;
+}
+#nav li {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	height: 100%;
+}
+#nav li a {
+	padding: 10px 15px 8px 15px;
+	display: block;
+	width: 100px;
+	margin-left: 15px;
+	font-family: Helvetica, Arial, sans-serif;
+	color: #333;
+	border-bottom: 1px dotted #888;
+	font-weight: bold;
+	text-decoration: none;
+}
+#nav li a:hover {
+	color: #000;
+}
+#content {
+width: 450px;
+padding: 20px 0 20px 20px;
+}
+
+/* ----- MainPageTop ------*/
+#mainpagetop {
+	width: 791px;
+	margin: 0;
+	background: url(#{resource['images/headerbg.gif']}) no-repeat top left;
+	padding: 0;
+}
+
+
+
+.clearfix {
+	clear: both;
+}
+#mainnav h2 {
+	color: #fff;
+	text-transform: uppercase;
+	background: url(#{resource['images/navbg1.gif']}) repeat-x top;
+	font-size: 110%;
+	padding: 3px;
+	margin: 0;
+	border-top: 1px solid #dbebc5;
+	border-left: 1px solid #dbebc5;
+	border-right: 1px solid #dbebc5;
+}
+p {
+	line-height: 1.5em;
+}
+h1 {
+	color: #686868;
+	font-size: 140%;
+	font-family: Helvetica,Arial, sans-serif;
+	font-weight: 100;
+	padding-bottom: 6px;
+	text-transform: uppercase;
+	border-bottom: 1px #686868 solid;
+	margin: 0;
+}
+h2 {
+	color: #852600;
+	font-size: 120%;
+	font-family: Helvetica,Arial, sans-serif;
+	margin: 0;
+}
+h3.logo {
+	color: #fff;
+	font-size: 130%;
+	font-family: Arial, Helvetica, sans-serif;
+	position: relative;
+	margin: 0;
+	padding: 0;
+	top: 60px;
+	left: 30px;
+}
+#footer {
+	background: url(#{resource['images/footerbg.gif']}) no-repeat bottom;
+	text-align: center;
+	padding: 20px 0 20px 0;
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 rel. 2 sp2 (http://www.altova.com) by stephan.duetsch@bbw.ch (Berufsbildungsschule Winterthur) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="performances">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="performance">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="id" type="xs:int"/>
+							<xs:element name="date" type="xs:date"/>
+							<xs:element name="Room" type="xs:string"/>
+							<xs:element name="Title" type="xs:string"/>
+							<xs:element name="TitleLink" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
