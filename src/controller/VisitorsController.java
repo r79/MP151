@@ -1,6 +1,5 @@
 package controller;
 import java.util.List;
-import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -13,6 +12,15 @@ import dto.VisitorDTO;
 
 @ManagedBean
 @RequestScoped
+/*
+ * Ich glaub das müsste mer ändere, wil die PerformanceID wird verlore gah wenn das Bean
+ * zerstört wird (nach request), das heisst ab visitors.xhtml wird es glaub ich zerstört
+ * und das performance Objekt vo vorher isch ja nirgends gspeichert
+ * Daher vilicht SessionScoped, so dass das länger lebt
+ *
+ * das isch nur e these; am beste du probiersch das us oder ändersch wie du es für richtig
+ * haltisch.
+ */
 public class VisitorsController {
 	@ManagedProperty(value="#{xmlDAO}")
 	private XmlDAO xmlDAO;
@@ -39,14 +47,14 @@ public class VisitorsController {
 	public List<VisitorDTO> showVisitors() {
 		return xmlDAO.getDataVisitors(performanceID);
 	}
-	
+
 	public String visitorsAction(PerformanceDTO performance) {
 		performanceID = performance.getId();
 		return "visitors.xhtml";
 	}
-	
+
 	public void generateVisitorsPDF() {
 		pdfcreator.generateVisitorsPDF(xmlDAO.getDataVisitors(performanceID));
 	}
-	
+
 }

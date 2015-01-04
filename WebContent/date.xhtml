@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:p="http://primefaces.org/ui">
 
 
 
@@ -22,14 +22,14 @@
 				prevText : 'Zurück',
 				nextText : 'Weiter',
 				monthNames : [ 'Januar', 'Februar', 'März', 'April', 'Mai',
-						'Juni', 'Juli', 'August', 'September', 'Oktober',
-						'November', 'Dezember' ],
+					'Juni', 'Juli', 'August', 'September', 'Oktober',
+					'November', 'Dezember' ],
 				monthNamesShort : [ 'Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun',
-						'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez' ],
+					'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez' ],
 				dayNames : [ 'Sonntag', 'Montag', 'Dienstag', 'Mittwoch',
-						'Donnerstag', 'Freitag', 'Samstag' ],
+					'Donnerstag', 'Freitag', 'Samstag' ],
 				dayNamesShort : [ 'Son', 'Mon', 'Die', 'Mit', 'Don', 'Fre',
-						'Sam' ],
+					'Sam' ],
 				dayNamesMin : [ 'S', 'M', 'D', 'M ', 'D', 'F ', 'S' ],
 				weekHeader : 'Woche',
 				firstDay : 1,
@@ -49,37 +49,32 @@
 				allDayText : 'Ganzer Tag'
 			};
 		</script>
-		
+
 		<h:form id="form">
 			<p:growl id="msgs" showDetail="true" />
 			<h:panelGrid columns="2" cellpadding="5">
 
 				<p:outputLabel for="germanStart" value="Startdatum: " />
 				<p:calendar id="germanStart" value="#{calendarController.startDate}" locale="de"
-					navigator="true" pattern="yyyy-MMM-dd" requiredMessage="Enddatum vor Startdatum, Error 404" 
-				validator="#{calendarController.checkDate}">
+							navigator="true" pattern="yyyy-MMM-dd" requiredMessage="Enddatum vor Startdatum, Error 404"
+							validator="#{calendarController.checkDate}">
 					<f:attribute name="second" value="#{second}" />
 					<h:message errorStyle="color:red; display:block" for="germanStart" />
 				</p:calendar>
-				
-				
-				
+
 				<p:outputLabel for="germanEnd" value="Enddatum: " />
 				<p:calendar id="germanEnd" value="#{calendarController.endDate}" locale="de"
-					navigator="true" pattern="yyyy-MMM-dd" binding="#{second}" />
-					
-					
+							navigator="true" pattern="yyyy-MMM-dd" binding="#{second}" />
+
 			</h:panelGrid>
 
 			<p:commandButton value="Speichern" update="msgs"
-				actionListener="#{calendarController.click}" icon="ui-icon-check" />
-
-			
+							 actionListener="#{calendarController.click}" icon="ui-icon-check" />
 
 			<p:dialog modal="true" resizable="false" header="Values"
-				widgetVar="dlg" showEffect="fold">
+					  widgetVar="dlg" showEffect="fold">
 				<p:panelGrid id="display" columns="2" columnClasses="label,value">
-				
+
 					<h:outputText value="Startdatum:" />
 					<h:outputText value="#{calendarController.startDate}">
 						<f:convertDateTime pattern="MM/dd/yyyy" />
@@ -89,34 +84,10 @@
 					<h:outputText value="#{calendarController.endDate}">
 						<f:convertDateTime pattern="MM/dd/yyyy" />
 					</h:outputText>
-				
+
 				</p:panelGrid>
 			</p:dialog>
 		</h:form>
-
-
-
-
-		<!-- 
-		<h:form>
-			<h:panelGrid rows="2">
-				Kontaktieren Sie einen unserer Kundenberater und finden Sie heraus, was er Ihnen zu sagen hat. Sie brauchen dazu nur seine IP-Adresse
-				einzugeben und schon erhalten Sie eine Botschaft direkt von seinem PC.
-				IP-Adresse<h:inputText value="#{callClient.serverIP}" required="true" id="name" requiredMessage="Keine IP eingegeben!"/>
-			
-			</h:panelGrid>
-			
-			<h:commandButton action="#{callClient.callAction}" value="Anfrage senden" />
-			<h:message for="name" errorStyle="color:red; display:block" />
-			
-			<br/>
-			<h:outputText value="#{callClient.message}"/>
-			<br/>
-			<h:outputText value="#{callClient.numbertext}"/>
-			<br/>
-			<h:outputText value="#{callClient.serverIP}"/>
-		</h:form>
-			 -->
 
 	</ui:define>
 </ui:composition>

@@ -31,10 +31,13 @@ import dto.VisitorDTO;
 
 @ManagedBean
 @ApplicationScoped
+/*Ich glaub das chömer uf ApplicationScoped lah wil wir ja nur
+ * 1 xml dao für das ganze programm bruchet
+ */
 public class XmlDAO {
 	private ArrayList<PerformanceDTO> arrayListDTO;
 	private ArrayList<VisitorDTO> arrayListDTO2;
-	
+
 	public ArrayList<PerformanceDTO> getArrayListDTO() {
 		return arrayListDTO;
 	}
@@ -42,7 +45,7 @@ public class XmlDAO {
 	public void setArrayListDTO(ArrayList<PerformanceDTO> arrayListDTO) {
 		this.arrayListDTO = arrayListDTO;
 	}
-	
+
 	public ArrayList<VisitorDTO> getArrayListDTO2() {
 		return arrayListDTO2;
 	}
@@ -53,7 +56,7 @@ public class XmlDAO {
 
 	public List<PerformanceDTO> getDataPerformances(long startdate, long enddate) {
 		arrayListDTO = new ArrayList<PerformanceDTO>();
-		
+
 		URL XMLURL = null;
 		InputStream rawInStream = null;
 		BufferedReader rdr = null;
@@ -63,54 +66,54 @@ public class XmlDAO {
 			HttpURLConnection conn = (HttpURLConnection) XMLURL.openConnection();
 			conn.setRequestMethod("GET");
 			rawInStream = conn.getInputStream();
-			
+
 			rdr = new BufferedReader(new InputStreamReader(rawInStream, "UTF-8"));
-			
+
 			String line = rdr.readLine();
-			
+
 			while (line != null) {
 				XML += line;
 				line = rdr.readLine();
 			}
-			
+
 			rdr.close();
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		
+
+
 		Document document = null;
 		try {
 			document = loadXMLFromString(XML);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		document.normalize();
-		
+
 		NodeList nList = document.getElementsByTagName("performance");
 		for (int i = 0; i < nList.getLength(); i++) {
 			Element elem = (Element) nList.item(i);
 			int id = Integer.parseInt(getValueOfSingleChild(elem, "id"));
-			
+
 			Long dateLong = Long.parseLong(getValueOfSingleChild(elem, "date"));
 			Date date = new Date(dateLong);
-			
+
 			String room = getValueOfSingleChild(elem, "room");
 			String title = getValueOfSingleChild(elem, "title");
 			String titleLink = getValueOfSingleChild(elem, "titleLink");
 
 			arrayListDTO.add(new PerformanceDTO(id, date, room, title, titleLink));
 		}
-		
+
 		return arrayListDTO;
 	}
-	
+
 	public List<VisitorDTO> getDataVisitors(int performanceID) {
 		arrayListDTO2 = new ArrayList<VisitorDTO>();
-		
+
 		URL XMLURL = null;
 		InputStream rawInStream = null;
 		BufferedReader rdr = null;
@@ -120,33 +123,33 @@ public class XmlDAO {
 			HttpURLConnection conn = (HttpURLConnection) XMLURL.openConnection();
 			conn.setRequestMethod("GET");
 			rawInStream = conn.getInputStream();
-			
+
 			rdr = new BufferedReader(new InputStreamReader(rawInStream, "UTF-8"));
-			
+
 			String line = rdr.readLine();
-			
+
 			while (line != null) {
 				XML += line;
 				line = rdr.readLine();
 			}
-			
+
 			rdr.close();
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		
+
+
 		Document document = null;
 		try {
 			document = loadXMLFromString(XML);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		document.normalize();
-		
+
 		NodeList nList = document.getElementsByTagName("performance");
 		for (int i = 0; i < nList.getLength(); i++) {
 			Element elem = (Element) nList.item(i);
@@ -156,18 +159,18 @@ public class XmlDAO {
 			String phone = getValueOfSingleChild(elem, "phone");
 			arrayListDTO2.add(new VisitorDTO(id, name, prename, phone));
 		}
-		
+
 		return arrayListDTO2;
 	}
-	
+
 	public static Document loadXMLFromString(String xml) throws Exception
 	{
-	    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-	    DocumentBuilder builder = factory.newDocumentBuilder();
-	    InputSource is = new InputSource(new StringReader(xml));
-	    return builder.parse(is);
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder builder = factory.newDocumentBuilder();
+		InputSource is = new InputSource(new StringReader(xml));
+		return builder.parse(is);
 	}
-	
+
 	public String getValueOfSingleChild(Element elem, String tagName) {
 		NodeList nList = elem.getElementsByTagName(tagName);
 		if(nList.getLength() < 1) {
@@ -176,5 +179,5 @@ public class XmlDAO {
 		Node textNode = nList.item(0);
 		return textNode.getFirstChild().getNodeValue();
 	}
-	
+
 }

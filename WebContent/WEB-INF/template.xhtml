@@ -1,100 +1,99 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" 
-      xmlns:ui="http://java.sun.com/jsf/facelets" 
-      xmlns:h="http://java.sun.com/jsf/html" 
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-    <title>My First JSF Website</title>
+	<title>My First JSF Website</title>
 	<h:outputStylesheet library="css" name="style.css"  />
 </h:head>
 
 <h:body>
 
-<div id="wrap">
+	<div id="wrap">
 
-	<!-- Main page top -->
-	<div id="mainpagetop">
-		&nbsp;
-		<div class="clearfix"></div>
-	</div>
-	
-	<!-- Sidebar left -->
-	<div id="sidebar">
-		<div id="header">
-			<h2>MP 151 - Projekt</h2>
+		<!-- Main page top -->
+		<div id="mainpagetop">
+			&nbsp;
+			<div class="clearfix"></div>
 		</div>
-		
-		<!-- Sub navigation-->
-		<ui:insert name="cph_menu">	
-			<ul id="nav">
-				<li><a href="index.xhtml">Home</a></li>
-				<li><a href="date.xhtml">Datumeingabe</a></li>
-				<li><a href="performances.xhtml">Vorstellungen</a></li>
-			</ul>
-		</ui:insert>
-		<br/><br/>
-		<ui:insert name="cph_lefttext">		
-			<!-- Replace left side text here with your custom copy-->
-			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas interdum 
-			fermentum leo. Integer rhoncus. Fusce non orci. Nulla lectus arcu, bibendum 
-			eget, feugiat a, lobortis non, tortor. Curabitur sed dui. Nam euismod posuere 
-			velit. Vestibulum at velit id nibh scelerisque consequat. Cum sociis natoque 
-			penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec 
-			</p>
-		</ui:insert>
-		
-	</div>
-	
-	<!-- Main body -->
-	<div id="main-body">
-	
-		<ui:insert name="cph_mainimage">		
-			<h:graphicImage library="images" name="header-img.jpg" height="118" width="523"/>
-		</ui:insert>
-		
-		<div id="content">
-		
-			<ui:insert name="cph_content">		
-				<h1>Willkommen</h1>
-				
-				<!-- Replace text here with your custom copy-->
-				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas interdum 
-				fermentum leo. Integer rhoncus. Fusce non orci. Nulla lectus arcu, bibendum 
-				eget, feugiat a, lobortis non, tortor. Curabitur sed dui. Nam euismod posuere 
-				velit. Vestibulum at velit id nibh scelerisque consequat. Cum sociis natoque 
-				penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec 
-				justo diam, dapibus ut, adipiscing sit amet, sagittis lobortis, elit. In 
-				condimentum rhoncus arcu. Fusce sed eros id lacus adipiscing mattis. Morbi 
-				pellentesque. Fusce lacus nisl, consequat sit amet, lobortis in, mattis 
-				non, risus. Sed sed purus.</p>
-				
-				<h2>Fusce ante sapien</h2>
-				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas interdum 
-				fermentum leo. Integer rhoncus. Fusce non orci. Nulla lectus arcu, bibendum 
-				eget, feugiat a, lobortis non, tortor. Curabitur sed dui. Nam euismod posuere 
-				velit. Vestibulum at velit id nibh scelerisque consequat. Cum sociis natoque 
-				penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec 
-				justo diam, dapibus ut, adipiscing sit amet, sagittis lobortis, elit. In 
-				condimentum rhoncus arcu. Fusce sed eros id lacus adipiscing mattis. Morbi 
-				pellentesque. Fusce lacus nisl, consequat sit amet, lobortis in, mattis 
-				non, risus. Sed sed purus.</p>
+
+		<!-- Sidebar left -->
+		<div id="sidebar">
+			<div id="header">
+				<h2>MP 151 - Projekt</h2>
+			</div>
+
+			<!-- Sub navigation-->
+			<ui:insert name="cph_menu">
+				<ul id="nav">
+					<li><a href="index.xhtml">Home</a></li>
+					<li><a href="date.xhtml">Datumeingabe</a></li>
+				</ul>
 			</ui:insert>
-		
+			<br/><br/>
+			<ui:insert name="cph_lefttext">
+				<!-- Replace left side text here with your custom copy-->
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas interdum
+					fermentum leo. Integer rhoncus. Fusce non orci. Nulla lectus arcu, bibendum
+					eget, feugiat a, lobortis non, tortor. Curabitur sed dui. Nam euismod posuere
+					velit. Vestibulum at velit id nibh scelerisque consequat. Cum sociis natoque
+					penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec
+				</p>
+			</ui:insert>
+
+		</div>
+
+		<!-- Main body -->
+		<div id="main-body">
+
+			<ui:insert name="cph_mainimage">
+				<h:graphicImage library="images" name="header-img.jpg" height="118" width="523"/>
+			</ui:insert>
+
+			<div id="content">
+
+				<ui:insert name="cph_content">
+					<h1>Willkommen</h1>
+
+					<!-- Replace text here with your custom copy-->
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas interdum
+						fermentum leo. Integer rhoncus. Fusce non orci. Nulla lectus arcu, bibendum
+						eget, feugiat a, lobortis non, tortor. Curabitur sed dui. Nam euismod posuere
+						velit. Vestibulum at velit id nibh scelerisque consequat. Cum sociis natoque
+						penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec
+						justo diam, dapibus ut, adipiscing sit amet, sagittis lobortis, elit. In
+						condimentum rhoncus arcu. Fusce sed eros id lacus adipiscing mattis. Morbi
+						pellentesque. Fusce lacus nisl, consequat sit amet, lobortis in, mattis
+						non, risus. Sed sed purus.</p>
+
+					<h2>Fusce ante sapien</h2>
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas interdum
+						fermentum leo. Integer rhoncus. Fusce non orci. Nulla lectus arcu, bibendum
+						eget, feugiat a, lobortis non, tortor. Curabitur sed dui. Nam euismod posuere
+						velit. Vestibulum at velit id nibh scelerisque consequat. Cum sociis natoque
+						penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec
+						justo diam, dapibus ut, adipiscing sit amet, sagittis lobortis, elit. In
+						condimentum rhoncus arcu. Fusce sed eros id lacus adipiscing mattis. Morbi
+						pellentesque. Fusce lacus nisl, consequat sit amet, lobortis in, mattis
+						non, risus. Sed sed purus.</p>
+				</ui:insert>
+
+			</div>
+		</div>
+
+		<div class="clearfix"></div>
+
+		<!-- Footer -->
+		<div id="footer">
+			<ui:insert name="cph_footer">
+				Designed With RAGE WebDesign
+			</ui:insert>
 		</div>
 	</div>
-	
-	<div class="clearfix"></div>
-	
-	<!-- Footer -->
-	<div id="footer">
-		<ui:insert name="cph_footer">	
-			Designed With RAGE WebDesign
-		</ui:insert>
-	</div>
-</div>
 
-</h:body>    
+</h:body>
 </html>
 

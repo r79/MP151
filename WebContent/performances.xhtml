@@ -1,57 +1,57 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" 
-      xmlns:ui="http://java.sun.com/jsf/facelets" 
-      xmlns:h="http://java.sun.com/jsf/html" 
-      xmlns:f="http://java.sun.com/jsf/core">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core">
 
 <ui:composition template="WEB-INF/template.xhtml">
-		
+
 	<ui:define name="cph_lefttext">
 		<p>Veranstaltungen!</p>
 	</ui:define>
-	
+
 	<ui:define name="cph_content">
 		<h1>Veranstaltungen</h1>
 		<p>
-			Hier alle Veranstaltungen zwischen den 2 eingegebenen Daten<br/>
+			Hier werden alle Veranstaltungen zwischen den 2 eingegebenen Daten angezeigt<br/>
 			Viel Spass<br/>
 		</p>
-		
+
 		<h:form>
-		<h:dataTable value="#{mainController.performancesAction}" var="o">
- 
-    			<h:column>
-    				<!-- column header -->
-    				<f:facet name="header">Datum</f:facet>
-    				<!-- row record -->
-    				 <h:outputText value="#{o.date}" >
-					 	<f:convertDateTime pattern="dd.MM.yyyy"/>
-					 </h:outputText>
-    			</h:column>
- 
-    			<h:column>
-    				<f:facet name="header">Zimmer</f:facet>
-    				#{o.room}
-    			</h:column>
- 
-    			<h:column>
-    				<f:facet name="header">Titel</f:facet>
-    				#{o.title}
-    			</h:column>
- 
-    			<h:column>
-    				<f:facet name="header">Link</f:facet>
-    				<h:outputLink value="#{o.titleLink}">Zur IMDB Seite</h:outputLink>
-    			</h:column>
-    			
-    			<h:column>
-    				<h:commandButton value="Zeige Visitors" action="#{visitorsController.visitorsAction(o)}"/>
-    			</h:column>
- 			<br/>
- 			
-    		</h:dataTable>
+			<h:dataTable value="#{performancesController.performancesAction}" var="o">
+
+				<h:column>
+					<!-- column header -->
+					<f:facet name="header">Datum</f:facet>
+					<!-- row record -->
+					<h:outputText value="#{o.date}" >
+						<f:convertDateTime pattern="dd.MM.yyyy"/>
+					</h:outputText>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Zimmer</f:facet>
+					#{o.room}
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Titel</f:facet>
+					#{o.title}
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Link</f:facet>
+					<h:outputLink value="#{o.titleLink}">Zur IMDB Seite</h:outputLink>
+				</h:column>
+
+				<h:column>
+					<h:commandButton value="Zeige Visitors" action="#{visitorsController.visitorsAction(o)}"/>
+				</h:column>
+				<br/>
+
+			</h:dataTable>
 		</h:form>
-		
+
 		<div style="height:200px"></div>
 	</ui:define>
 

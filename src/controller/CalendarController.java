@@ -18,6 +18,8 @@ import org.primefaces.event.SelectEvent;
 
 @ManagedBean
 @SessionScoped
+//Session Scoped damit de Main Controller für die Performances über dependency injection uf die
+//Start und Enddatum später no zuegrife chan
 public class CalendarController {
 	private Date startDate;
 	private Date endDate;
@@ -31,16 +33,8 @@ public class CalendarController {
 
 	}
 
-	/*
-	 * <h:inputText value="#{contactData.name}" required="true" id="name"
-	 * requiredMessage="Enddatum vor Startdatum, Error 404"
-	 * validator="#{contactController.checkName}"/>
-	 */
-
-	// FacesContext context, UIComponent component, Object value
 	public void click() {
 		RequestContext requestContext = RequestContext.getCurrentInstance();
-
 		requestContext.update("form:display");
 		requestContext.execute("PF('dlg').show()");
 	}
@@ -62,7 +56,7 @@ public class CalendarController {
 	}
 
 	public void checkDate(FacesContext context, UIComponent component,
-			Object value) throws ValidatorException {
+						  Object value) throws ValidatorException {
 		UIInput confirmComponent = (UIInput) component.getAttributes().get(
 				"second");
 
@@ -72,14 +66,13 @@ public class CalendarController {
 		SimpleDateFormat parseFormat = new SimpleDateFormat("yyyy-MMM-dd");
 		Date startDateDate = null;
 		Date endDateDate = null;
-		
+
 		try {
 			startDateDate = parseFormat.parse(startDate);
 			endDateDate = parseFormat.parse(endDate);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-
 		if (startDateDate.after(endDateDate)) {
 			throw new ValidatorException(new FacesMessage("Startdatum nach Enddatum"));
 		}
