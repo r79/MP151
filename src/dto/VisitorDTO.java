@@ -29,7 +29,7 @@ public class VisitorDTO {
 		this.name = name;
 	}
 
-	public String prename() {
+	public String getPrename() {
 		return prename;
 	}
 
